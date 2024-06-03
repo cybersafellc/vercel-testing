@@ -1,5 +1,7 @@
 import express from "express";
 import http from "http";
+import dotenv from "dotenv";
+dotenv.config();
 
 const web = express();
 web.use((req, res, next) => {
@@ -9,6 +11,6 @@ web.use((req, res, next) => {
 });
 
 const server = http.createServer(web);
-server.listen(80, () => {
+server.listen(process.env.PORT, () => {
   console.log("server running");
 });
